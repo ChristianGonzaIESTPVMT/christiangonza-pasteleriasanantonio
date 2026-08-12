@@ -1,0 +1,18 @@
+#accion {
+    grid-area: accion;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(40,29,25,.82),rgba(40,29,25,.82)),url("../img/imagen.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+}
+#accion div { max-width: 850px; }
+#accion .etiqueta { color: var(--color-acento); }
+#accion h2 { color: var(--color-blanco); margin-bottom: 24px; }
+#accion p { color: #f8eee7; margin-bottom: 30px; font-size: 1.12rem; }
+#accion .boton { background: var(--color-principal); color:var(--color-blanco); border-color:var(--color-principal); }
+#accion .boton:hover { background:transparent; color:var(--color-blanco); border-color:var(--color-blanco); }

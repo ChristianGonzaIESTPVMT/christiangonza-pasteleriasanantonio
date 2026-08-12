@@ -1,0 +1,97 @@
+#contenedor {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template:
+        "redes" 50px
+        "menu" 86px
+        "banner" 720px
+        "bienvenida" auto
+        "ofrecemos" auto
+        "accion" auto
+        "teem" auto
+        "pie" auto / 1fr;
+}
+#datos {
+    grid-area: redes;
+    background-color: var(--color-principal);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 4%;
+}
+#dir { width: 65%; display: flex; gap: 28px; }
+#dir p { color: var(--color-blanco); font-size: .88rem; font-weight: 600; }
+#dir i { color: var(--color-acento); margin-right: 6px; }
+#redes { width: auto; display: flex; gap: 20px; }
+#redes a { color: var(--color-blanco); font-size: 1.15rem; transition: .25s ease; }
+#redes a:hover { color: var(--color-acento); transform: translateY(-2px); }
+
+#cabecera {
+    grid-area: menu;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: rgba(43, 33, 30, .99);
+    z-index: 20;
+    box-shadow: 0 8px 26px rgba(43, 33, 30, .18);
+}
+.enlace { display: flex; align-items: center; height: 100%; }
+.logo { width: 210px; height: 76px; object-fit: contain; margin-left: 18px; border-radius: 3px; }
+#check:checked ~ .menu { left: 0; }
+#check { display: none; }
+.icon-menu { color: var(--color-acento); font-size: 2rem; margin-right: 20px; cursor: pointer; }
+.menu {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 86px;
+    left: -100%;
+    background-color: rgba(43, 33, 30, .99);
+    transition: .6s ease;
+    z-index: 22;
+}
+.menu li { width: 100%; border-bottom: 1px solid rgba(255,255,255,.10); list-style: none; }
+.menu li a {
+    text-decoration: none;
+    display: block;
+    padding: 22px 18px;
+    text-align: center;
+    font-size: .95rem;
+    color: var(--color-blanco);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+.menu li a.active, .menu li a:hover { background-color: var(--color-principal); color: var(--color-blanco); }
+
+#banner { grid-area: banner; overflow: hidden; background: var(--color-oscuro); }
+.slider {
+    width: 100%; height: 100%; display: flex; position: relative;
+    animation: cambiarBanner 15s infinite ease-in-out;
+}
+.contenido-slider {
+    width: 100%; height: 100%; display: flex; align-items: center;
+    flex: 0 0 100%; flex-shrink: 0; padding: 0 7%;
+}
+.contenido-slider > div { max-width: 780px; }
+.contenido-slider .etiqueta { color: var(--color-acento); margin-bottom: 12px; }
+.contenido-slider h2 {
+    color: var(--color-blanco); margin: 0 0 20px; font-size: clamp(3rem, 6vw, 6.2rem);
+    text-shadow: 0 4px 18px rgba(0,0,0,.45);
+}
+.contenido-slider p { max-width: 690px; font-size: 1.08rem; margin-bottom: 30px; color: #f8eee7; }
+.contenido-slider .boton { background: var(--color-principal); border-color: var(--color-principal); color: var(--color-blanco); }
+.contenido-slider .boton:hover { background: transparent; color: var(--color-blanco); border-color: var(--color-blanco); }
+@keyframes cambiarBanner {
+    0%,20% { transform: translateX(0); }
+    25%,45% { transform: translateX(-100%); }
+    50%,70% { transform: translateX(-200%); }
+    75%,100% { transform: translateX(-300%); }
+}
+.caja1,.caja2,.caja3 { background-size: cover; background-position: center; }
+.caja1 { background-image: linear-gradient(90deg,rgba(42,30,25,.90),rgba(42,30,25,.20)),url(../img/banner.jpg); }
+.caja2 { background-image: linear-gradient(90deg,rgba(42,30,25,.90),rgba(42,30,25,.24)),url(../img/banner2.jpg); }
+.caja3 { background-image: linear-gradient(90deg,rgba(42,30,25,.90),rgba(42,30,25,.24)),url(../img/banner3.jpg); }

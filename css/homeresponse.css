@@ -1,0 +1,16 @@
+@media (min-width: 900px) {
+    #bienvenida { flex-wrap: nowrap; }
+    #bienvenida img { width: 50%; }
+    #mensaje { width: 44%; padding: 25px; }
+    #gtrabajo .titulo-seccion { width:100%; }
+}
+@media (max-width: 899px) {
+    #contenedor { grid-template-rows: 50px 86px 620px auto auto auto auto auto; }
+    section { padding: 70px 7%; }
+}
+@media (max-width: 600px) {
+    #dir p:first-child { display:none; }
+    #dir { width:auto; }
+    #contenedor { grid-template-rows: 50px 86px 560px auto auto auto auto auto; }
+    .contenido-slider { padding:0 8%; }
+}
