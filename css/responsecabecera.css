@@ -1,0 +1,36 @@
+@media (min-width: 998px) {
+    #contenedor {
+        grid-template:
+            "redes" 46px
+            "menu" 104px
+            "banner" 720px
+            "bienvenida" auto
+            "ofrecemos" auto
+            "accion" auto
+            "teem" auto
+            "pie" auto / 1fr;
+    }
+    .logo { width:225px; height:92px; margin-left:42px; }
+    .menu {
+        position:static;
+        width:auto;
+        height:100%;
+        flex-wrap:nowrap;
+        background:transparent;
+        box-shadow:none;
+        margin-right:4%;
+        gap:4px;
+    }
+    .checkbtn { display:none; }
+    .menu li { width:auto; border:none; }
+    .menu li a {
+        display:flex;
+        align-items:center;
+        height:100%;
+        padding:0 18px;
+        color:var(--color-secundario);
+    }
+    .menu li a::after { bottom:28px; }
+    .menu li a.active,.menu li a:hover { color:var(--color-principal); background:transparent; }
+    #dir { width:auto; }
+}

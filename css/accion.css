@@ -1,0 +1,44 @@
+#accion {
+    grid-area: accion;
+    min-height:520px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    background-image:
+        linear-gradient(90deg, rgba(76,53,45,.97) 0%, rgba(76,53,45,.97) 53%, rgba(76,53,45,.10) 53%, rgba(76,53,45,.05) 100%),
+        url("../img/imagen.jpeg");
+    background-size:cover;
+    background-position:center;
+    text-align:left;
+    overflow:hidden;
+}
+#accion div {
+    width:48%;
+    max-width:680px;
+    margin-left:2%;
+    padding:24px 5% 24px 0;
+    position:relative;
+}
+#accion div::before {
+    content:"SAN ANTONIO";
+    position:absolute;
+    left:-4px; top:-48px;
+    font-family:'Playfair Display',serif;
+    font-size:clamp(3.5rem,7vw,7rem);
+    font-weight:800;
+    color:rgba(255,255,255,.045);
+    white-space:nowrap;
+}
+#accion .etiqueta { color:var(--color-acento); }
+#accion h2 { color:var(--color-blanco); margin-bottom:24px; }
+#accion p { color:var(--color-texto-claro); margin-bottom:30px; font-size:1.06rem; }
+#accion .boton { background:var(--color-acento); color:var(--color-secundario); border-color:var(--color-acento); box-shadow:7px 7px 0 rgba(255,255,255,.09); }
+#accion .boton:hover { background:transparent; color:var(--color-blanco); border-color:var(--color-blanco); }
+
+@media(max-width:800px){
+    #accion {
+        background-image:linear-gradient(rgba(76,53,45,.89),rgba(76,53,45,.89)),url("../img/imagen.jpeg");
+        background-position:center;
+    }
+    #accion div { width:100%; max-width:680px; margin:0; padding:15px 2%; }
+}

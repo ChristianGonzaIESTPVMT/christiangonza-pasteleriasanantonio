@@ -1,0 +1,148 @@
+#contenedor {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template:
+        "redes" 46px
+        "menu" 90px
+        "banner" 720px
+        "bienvenida" auto
+        "ofrecemos" auto
+        "accion" auto
+        "teem" auto
+        "pie" auto / 1fr;
+}
+
+/* Barra superior más sobria */
+#datos {
+    grid-area: redes;
+    background: var(--color-secundario);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+#dir { display: flex; gap: 28px; }
+#dir p { color: var(--color-texto-claro); font-size: .82rem; font-weight: 600; }
+#dir i { color: var(--color-acento); margin-right: 6px; }
+#redes { display: flex; gap: 18px; }
+#redes a {
+    width: 30px; height: 30px;
+    display: grid; place-items: center;
+    color: var(--color-texto-claro);
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 50%;
+    font-size: .9rem;
+    transition: .3s ease;
+}
+#redes a:hover { background: var(--color-acento); color: var(--color-secundario); transform: rotate(8deg) scale(1.08); }
+
+/* Cabecera clara: rompe con la versión oscura de Don Mamino */
+#cabecera {
+    grid-area: menu;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: rgba(251,245,239,.98);
+    z-index: 20;
+    border-bottom: 1px solid rgba(166,111,79,.18);
+    box-shadow: 0 8px 28px rgba(76,53,45,.08);
+}
+.enlace { display: flex; align-items: center; height: 100%; }
+.logo { width: 205px; height: 76px; object-fit: contain; margin-left: 24px; }
+#check:checked ~ .menu { left: 0; }
+#check { display: none; }
+.icon-menu { color: var(--color-secundario); font-size: 2rem; margin-right: 24px; cursor: pointer; }
+.menu {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 90px;
+    left: -100%;
+    background-color: var(--color-claro);
+    transition: .5s cubic-bezier(.22,.61,.36,1);
+    z-index: 22;
+    box-shadow: 0 18px 30px rgba(76,53,45,.12);
+}
+.menu li { width: 100%; border-bottom: 1px solid rgba(76,53,45,.09); list-style: none; }
+.menu li a {
+    text-decoration: none;
+    display: block;
+    padding: 20px 18px;
+    text-align: center;
+    font-size: .9rem;
+    color: var(--color-secundario);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    position: relative;
+}
+.menu li a::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: 10px;
+    width: 0; height: 2px;
+    background: var(--color-principal);
+    transition: .3s ease;
+    transform: translateX(-50%);
+}
+.menu li a.active::after, .menu li a:hover::after { width: 38px; }
+.menu li a.active, .menu li a:hover { color: var(--color-principal); }
+
+/* Hero con fundido y zoom, no desplazamiento horizontal */
+#banner { grid-area: banner; overflow: hidden; background: var(--color-oscuro); position: relative; }
+.slider { width: 100%; height: 100%; position: relative; }
+.contenido-slider {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 7%;
+    opacity: 0;
+    transform: scale(1.03);
+    animation: fundidoBanner 18s infinite ease-in-out;
+}
+.contenido-slider:nth-child(1) { animation-delay: 0s; }
+.contenido-slider:nth-child(2) { animation-delay: 6s; }
+.contenido-slider:nth-child(3) { animation-delay: 12s; }
+.contenido-slider > div {
+    max-width: 720px;
+    padding: 36px 38px 38px;
+    border-left: 4px solid var(--color-acento);
+    background: rgba(43,33,30,.48);
+    backdrop-filter: blur(3px);
+    transform: translateY(22px);
+    animation: contenidoHero 18s infinite ease-in-out;
+}
+.contenido-slider:nth-child(1) > div { animation-delay: 0s; }
+.contenido-slider:nth-child(2) > div { animation-delay: 6s; }
+.contenido-slider:nth-child(3) > div { animation-delay: 12s; }
+.contenido-slider .etiqueta { color: var(--color-acento); margin-bottom: 12px; }
+.contenido-slider h2 {
+    color: var(--color-blanco);
+    margin: 0 0 20px;
+    font-size: clamp(2.8rem, 5.4vw, 5.7rem);
+    text-shadow: 0 4px 18px rgba(0,0,0,.38);
+}
+.contenido-slider p { max-width: 650px; font-size: 1.04rem; margin-bottom: 28px; color: #f8eee7; }
+.contenido-slider .boton { background: var(--color-acento); border-color: var(--color-acento); color: var(--color-secundario); }
+.contenido-slider .boton:hover { background: transparent; color: var(--color-blanco); border-color: var(--color-blanco); }
+
+@keyframes fundidoBanner {
+    0% { opacity: 0; transform: scale(1.05); z-index: 1; }
+    5%, 28% { opacity: 1; transform: scale(1); z-index: 2; }
+    33%, 100% { opacity: 0; transform: scale(.995); z-index: 1; }
+}
+@keyframes contenidoHero {
+    0% { opacity: 0; transform: translateY(28px); }
+    7%, 27% { opacity: 1; transform: translateY(0); }
+    33%,100% { opacity: 0; transform: translateY(-14px); }
+}
+
+.caja1,.caja2,.caja3 { background-size: cover; background-position: center; }
+.caja1 { background-image: linear-gradient(90deg,rgba(40,29,25,.82),rgba(40,29,25,.14)),url(../img/banner.jpg); }
+.caja2 { background-image: linear-gradient(90deg,rgba(40,29,25,.82),rgba(40,29,25,.16)),url(../img/banner2.jpg); }
+.caja3 { background-image: linear-gradient(90deg,rgba(40,29,25,.82),rgba(40,29,25,.16)),url(../img/banner3.jpg); }

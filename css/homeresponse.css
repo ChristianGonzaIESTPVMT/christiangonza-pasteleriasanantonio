@@ -1,0 +1,17 @@
+@media (min-width: 900px) {
+    #bienvenida { grid-template-columns: 1.05fr .95fr; }
+    #gtrabajo .titulo-seccion { width:100%; }
+}
+@media (max-width: 899px) {
+    #contenedor { grid-template-rows: 46px 90px 620px auto auto auto auto auto; }
+    section { padding: 70px 7%; }
+    .contenido-slider > div { padding: 28px; }
+}
+@media (max-width: 600px) {
+    #dir p:first-child { display:none; }
+    #dir { width:auto; }
+    #contenedor { grid-template-rows: 46px 90px 570px auto auto auto auto auto; }
+    .contenido-slider { padding:0 6%; }
+    .contenido-slider > div { border-left-width:3px; padding:22px; }
+    .contenido-slider h2 { font-size:2.55rem; }
+}
