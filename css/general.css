@@ -89,3 +89,25 @@ a { cursor: pointer; }
     *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
     .reveal { opacity:1; transform:none; }
 }
+
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    text-decoration: none;
+    color: inherit;
+}
+
+.marca .logo {
+    display: block;
+}
+
+.nombre-marca {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    color: var(--color-secundario);
+}
