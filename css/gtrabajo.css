@@ -58,3 +58,48 @@
     .imagen,.descripcion{ width:100%; }
     .imagen{ min-height:260px; }
 }
+
+/* Redes sociales dentro de las tarjetas */
+.redes-tarjeta {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.redes-tarjeta a {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    background: var(--color-claro);
+    color: var(--color-principal);
+
+    border: 1px solid rgba(166, 111, 79, .25);
+    border-radius: 50%;
+
+    font-size: .9rem;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+}
+
+/* Cambio de los iconos cuando se anima la tarjeta */
+.teem:hover .redes-tarjeta a {
+    background: var(--color-acento);
+    color: var(--color-secundario);
+    border-color: var(--color-acento);
+}
+
+/* Animación individual al pasar por cada red */
+.redes-tarjeta a:hover {
+    transform: translateY(-4px) rotate(6deg) scale(1.12);
+    background: var(--color-blanco) !important;
+    color: var(--color-principal) !important;
+}
